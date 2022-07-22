@@ -52,24 +52,9 @@ public enum BlockType {
     LEAVES(BlockID.LEAVES, "Leaves", "leaves", "leaf"),
     SPONGE(BlockID.SPONGE, "Sponge", "sponge"),
     GLASS(BlockID.GLASS, "Glass", "glass"),
-    LAPIS_LAZULI_ORE(BlockID.LAPIS_LAZULI_ORE, "Lapis lazuli ore", "lapislazuliore", "blueore", "lapisore"),
-    LAPIS_LAZULI(BlockID.LAPIS_LAZULI_BLOCK, "Lapis lazuli", "lapislazuli", "lapislazuliblock", "bluerock"),
-    DISPENSER(BlockID.DISPENSER, "Dispenser", "dispenser"),
-    SANDSTONE(BlockID.SANDSTONE, "Sandstone", "sandstone"),
-    NOTE_BLOCK(BlockID.NOTE_BLOCK, "Note block", "musicblock", "noteblock", "note", "music", "instrument"),
-    BED(BlockID.BED, "Bed", "bed"),
-    POWERED_RAIL(BlockID.POWERED_RAIL, "Powered Rail", "poweredrail", "boosterrail", "poweredtrack", "boostertrack", "booster"),
-    DETECTOR_RAIL(BlockID.DETECTOR_RAIL, "Detector Rail", "detectorrail", "detector"),
-    PISTON_STICKY_BASE(BlockID.PISTON_STICKY_BASE, "Sticky Piston", "stickypiston"),
-    WEB(BlockID.WEB, "Web", "web", "spiderweb"),
-    LONG_GRASS(BlockID.LONG_GRASS, "Long grass", "longgrass", "tallgrass"),
-    DEAD_BUSH(BlockID.DEAD_BUSH, "Shrub", "deadbush", "shrub", "deadshrub", "tumbleweed"),
-    PISTON_BASE(BlockID.PISTON_BASE, "Piston", "piston"),
-    PISTON_EXTENSION(BlockID.PISTON_EXTENSION, "Piston extension", "pistonextendsion", "pistonhead"),
     CLOTH(BlockID.CLOTH, "Wool", "cloth", "wool"),
-    PISTON_MOVING_PIECE(BlockID.PISTON_MOVING_PIECE, "Piston moving piece", "movingpiston"),
-    YELLOW_FLOWER(BlockID.YELLOW_FLOWER, "Yellow flower", "yellowflower", "flower"),
-    RED_FLOWER(BlockID.RED_FLOWER, "Red rose", "redflower", "redrose", "rose"),
+    YELLOW_FLOWER(BlockID.BLUE_FLOWER, "Blue flower", "blueflower", "flower"),
+    RED_FLOWER(BlockID.SILVER_ROSE, "Silver rose", "silverflower", "silverrose", "rose"),
     BROWN_MUSHROOM(BlockID.BROWN_MUSHROOM, "Brown mushroom", "brownmushroom", "mushroom"),
     RED_MUSHROOM(BlockID.RED_MUSHROOM, "Red mushroom", "redmushroom"),
     GOLD_BLOCK(BlockID.GOLD_BLOCK, "Gold block", "gold", "goldblock"),
@@ -363,18 +348,13 @@ public enum BlockType {
      */
     public static boolean shouldPlaceLast(int id) {
         return id == BlockID.SAPLING
-                || id == BlockID.BED
-                || id == BlockID.POWERED_RAIL
-                || id == BlockID.DETECTOR_RAIL
-                || id == BlockID.LONG_GRASS
-                || id == BlockID.DEAD_BUSH
-                || id == BlockID.YELLOW_FLOWER
-                || id == BlockID.RED_FLOWER
+                || id == BlockID.BLUE_FLOWER
+                || id == BlockID.SILVER_ROSE
                 || id == BlockID.BROWN_MUSHROOM
                 || id == BlockID.RED_MUSHROOM
                 || id == BlockID.TORCH
                 || id == BlockID.FIRE
-                || id == BlockID.REDSTONE_WIRE
+                || id == BlockID.GREENSTONE_WIRE
                 || id == BlockID.CROPS
                 || id == BlockID.SIGN_POST
                 || id == BlockID.WOODEN_DOOR
@@ -385,17 +365,12 @@ public enum BlockType {
                 || id == BlockID.STONE_PRESSURE_PLATE
                 || id == BlockID.IRON_DOOR
                 || id == BlockID.WOODEN_PRESSURE_PLATE
-                || id == BlockID.REDSTONE_TORCH_OFF
-                || id == BlockID.REDSTONE_TORCH_ON
+                || id == BlockID.GREENSTONE_TORCH_OFF
+                || id == BlockID.GREENSTONE_TORCH_ON
                 || id == BlockID.STONE_BUTTON
                 || id == BlockID.SNOW
                 || id == BlockID.CACTUS
-                || id == BlockID.REED
-                || id == BlockID.PORTAL
-                || id == BlockID.CAKE_BLOCK
-                || id == BlockID.REDSTONE_REPEATER_OFF
-                || id == BlockID.REDSTONE_REPEATER_ON
-                || id == BlockID.TRAP_DOOR;
+                || id == BlockID.REED;
     }
 
     /**
@@ -409,18 +384,13 @@ public enum BlockType {
                 || id == BlockID.WATER
                 || id == BlockID.STATIONARY_WATER
                 || id == BlockID.SAPLING
-                || id == BlockID.POWERED_RAIL
-                || id == BlockID.DETECTOR_RAIL
-                || id == BlockID.WEB
-                || id == BlockID.LONG_GRASS
-                || id == BlockID.DEAD_BUSH
-                || id == BlockID.YELLOW_FLOWER
-                || id == BlockID.RED_FLOWER
+                || id == BlockID.BLUE_FLOWER
+                || id == BlockID.SILVER_ROSE
                 || id == BlockID.BROWN_MUSHROOM
                 || id == BlockID.RED_MUSHROOM
                 || id == BlockID.TORCH
                 || id == BlockID.FIRE
-                || id == BlockID.REDSTONE_WIRE
+                || id == BlockID.GREENSTONE_WIRE
                 || id == BlockID.CROPS
                 || id == BlockID.SIGN_POST
                 || id == BlockID.LADDER
@@ -429,14 +399,11 @@ public enum BlockType {
                 || id == BlockID.LEVER
                 || id == BlockID.STONE_PRESSURE_PLATE
                 || id == BlockID.WOODEN_PRESSURE_PLATE
-                || id == BlockID.REDSTONE_TORCH_OFF
-                || id == BlockID.REDSTONE_TORCH_ON
+                || id == BlockID.GREENSTONE_TORCH_OFF
+                || id == BlockID.GREENSTONE_TORCH_ON
                 || id == BlockID.STONE_BUTTON
                 || id == BlockID.SNOW
-                || id == BlockID.REED
-                || id == BlockID.PORTAL
-                || id == BlockID.REDSTONE_REPEATER_OFF
-                || id == BlockID.REDSTONE_REPEATER_ON;
+                || id == BlockID.REED;
     }
 
     /**
@@ -453,21 +420,12 @@ public enum BlockType {
                 || id == BlockID.STATIONARY_LAVA
                 || id == BlockID.LOG
                 || id == BlockID.LEAVES
-                || id == BlockID.DISPENSER
-                || id == BlockID.NOTE_BLOCK
-                || id == BlockID.BED
-                || id == BlockID.POWERED_RAIL
-                || id == BlockID.DETECTOR_RAIL
-                || id == BlockID.PISTON_STICKY_BASE
-                || id == BlockID.LONG_GRASS
-                || id == BlockID.PISTON_BASE
-                || id == BlockID.PISTON_EXTENSION
                 || id == BlockID.CLOTH
                 || id == BlockID.DOUBLE_STEP
                 || id == BlockID.STEP
                 || id == BlockID.TORCH
                 || id == BlockID.WOODEN_STAIRS
-                || id == BlockID.REDSTONE_WIRE
+                || id == BlockID.GREENSTONE_WIRE
                 || id == BlockID.CROPS
                 || id == BlockID.SOIL
                 || id == BlockID.FURNACE
@@ -482,17 +440,11 @@ public enum BlockType {
                 || id == BlockID.STONE_PRESSURE_PLATE
                 || id == BlockID.IRON_DOOR
                 || id == BlockID.WOODEN_PRESSURE_PLATE
-                || id == BlockID.REDSTONE_TORCH_OFF
-                || id == BlockID.REDSTONE_TORCH_ON
+                || id == BlockID.GREENSTONE_TORCH_OFF
+                || id == BlockID.GREENSTONE_TORCH_ON
                 || id == BlockID.STONE_BUTTON
                 || id == BlockID.SNOW
-                || id == BlockID.CACTUS
-                || id == BlockID.PUMPKIN
-                || id == BlockID.JACKOLANTERN
-                || id == BlockID.CAKE_BLOCK
-                || id == BlockID.REDSTONE_REPEATER_OFF
-                || id == BlockID.REDSTONE_REPEATER_ON
-                || id == BlockID.TRAP_DOOR;
+                || id == BlockID.CACTUS;
     }
     
     /**
@@ -502,8 +454,7 @@ public enum BlockType {
      * @return
      */
     public static boolean isContainerBlock(int id) {
-        return id == BlockID.DISPENSER
-                || id == BlockID.FURNACE
+        return id == BlockID.FURNACE
                 || id == BlockID.BURNING_FURNACE
                 || id == BlockID.CHEST;
     }
@@ -515,24 +466,16 @@ public enum BlockType {
      * @return
      */
     public static boolean isRedstoneBlock(int id) {
-        return id == BlockID.POWERED_RAIL
-                || id == BlockID.DETECTOR_RAIL
-                || id == BlockID.PISTON_STICKY_BASE
-                || id == BlockID.PISTON_BASE
-                || id == BlockID.LEVER
+        return id == BlockID.LEVER
                 || id == BlockID.STONE_PRESSURE_PLATE
                 || id == BlockID.WOODEN_PRESSURE_PLATE
-                || id == BlockID.REDSTONE_TORCH_OFF
-                || id == BlockID.REDSTONE_TORCH_ON
+                || id == BlockID.GREENSTONE_TORCH_OFF
+                || id == BlockID.GREENSTONE_TORCH_ON
                 || id == BlockID.STONE_BUTTON
-                || id == BlockID.REDSTONE_WIRE
+                || id == BlockID.GREENSTONE_WIRE
                 || id == BlockID.WOODEN_DOOR
                 || id == BlockID.IRON_DOOR
-                || id == BlockID.TNT
-                || id == BlockID.DISPENSER
-                || id == BlockID.NOTE_BLOCK
-                || id == BlockID.REDSTONE_REPEATER_OFF
-                || id == BlockID.REDSTONE_REPEATER_ON;
+                || id == BlockID.TNT;
     }
 
    /**
@@ -543,11 +486,9 @@ public enum BlockType {
      * @return
      */
     public static boolean canTransferRedstone(int id) {
-        return id == BlockID.REDSTONE_TORCH_OFF
-                || id == BlockID.REDSTONE_TORCH_ON
-                || id == BlockID.REDSTONE_WIRE
-                || id == BlockID.REDSTONE_REPEATER_OFF
-                || id == BlockID.REDSTONE_REPEATER_ON;
+        return id == BlockID.GREENSTONE_TORCH_OFF
+                || id == BlockID.GREENSTONE_TORCH_ON
+                || id == BlockID.GREENSTONE_WIRE;
     }
 
     /**
@@ -557,9 +498,8 @@ public enum BlockType {
      * @return
      */
     public static boolean isRedstoneSource(int id) {
-        return id == BlockID.DETECTOR_RAIL
-                || id == BlockID.REDSTONE_TORCH_OFF
-                || id == BlockID.REDSTONE_TORCH_ON
+        return id == BlockID.GREENSTONE_TORCH_OFF
+                || id == BlockID.GREENSTONE_TORCH_ON
                 || id == BlockID.LEVER
                 || id == BlockID.STONE_PRESSURE_PLATE
                 || id == BlockID.WOODEN_PRESSURE_PLATE
@@ -573,9 +513,7 @@ public enum BlockType {
      * @return
      */
     public static boolean isRailBlock(int id) {
-       return id == BlockID.POWERED_RAIL
-               || id == BlockID.DETECTOR_RAIL
-               || id == BlockID.MINECART_TRACKS;
+       return id == BlockID.MINECART_TRACKS;
     }
 
     /**
@@ -593,18 +531,13 @@ public enum BlockType {
                 || id == BlockID.SAND
                 || id == BlockID.GRAVEL
                 || id == BlockID.CLAY
-                // hell
-                || id == BlockID.NETHERSTONE
-                || id == BlockID.SLOW_SAND
-                || id == BlockID.LIGHTSTONE
                 // ores
                 || id == BlockID.COAL_ORE
                 || id == BlockID.IRON_ORE
                 || id == BlockID.GOLD_ORE
-                || id == BlockID.LAPIS_LAZULI_ORE
                 || id == BlockID.DIAMOND_ORE
-                || id == BlockID.REDSTONE_ORE
-                || id == BlockID.GLOWING_REDSTONE_ORE;
+                || id == BlockID.GREENSTONE_ORE
+                || id == BlockID.GLOWING_GREENSTONE_ORE;
     }
 
     /**

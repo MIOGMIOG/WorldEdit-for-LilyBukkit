@@ -28,14 +28,12 @@ import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Boat;
 import org.bukkit.entity.Creature;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Ghast;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Minecart;
 import org.bukkit.entity.Painting;
 import org.bukkit.entity.Slime;
 import org.bukkit.entity.TNTPrimed;
-import org.bukkit.entity.Wolf;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.Location;
@@ -278,15 +276,6 @@ public class BukkitWorld extends LocalWorld {
             return true;
         
         // Note block
-        } else if (block instanceof NoteBlock) {
-            Block bukkitBlock = world.getBlockAt(pt.getBlockX(), pt.getBlockY(), pt.getBlockZ());
-            if (bukkitBlock == null) return false;
-            BlockState state = bukkitBlock.getState();
-            if (!(state instanceof org.bukkit.block.NoteBlock)) return false;
-            org.bukkit.block.NoteBlock bukkit = (org.bukkit.block.NoteBlock)state;
-            NoteBlock we = (NoteBlock)block;
-            bukkit.setRawNote(we.getNote());
-            return true;
         }
         
         return false;
@@ -337,14 +326,6 @@ public class BukkitWorld extends LocalWorld {
             return true;
         
         // Note block
-        } else if (block instanceof NoteBlock) {
-            Block bukkitBlock = world.getBlockAt(pt.getBlockX(), pt.getBlockY(), pt.getBlockZ());
-            if (bukkitBlock == null) return false;
-            BlockState state = bukkitBlock.getState();
-            if (!(state instanceof org.bukkit.block.NoteBlock)) return false;
-            org.bukkit.block.NoteBlock bukkit = (org.bukkit.block.NoteBlock)state;
-            NoteBlock we = (NoteBlock)block;
-            we.setNote(bukkit.getRawNote());
         }
         
         return false;
@@ -397,42 +378,6 @@ public class BukkitWorld extends LocalWorld {
     }
 
     /**
-     * Generate a birch tree at a location.
-     * 
-     * @param pt
-     * @return
-     */
-    @Override
-    public boolean generateBirchTree(EditSession editSession, Vector pt) {
-        return world.generateTree(BukkitUtil.toLocation(world, pt), TreeType.BIRCH,
-                new EditSessionBlockChangeDelegate(editSession));
-    }
-
-    /**
-     * Generate a redwood tree at a location.
-     * 
-     * @param pt
-     * @return
-     */
-    @Override
-    public boolean generateRedwoodTree(EditSession editSession, Vector pt) {
-        return world.generateTree(BukkitUtil.toLocation(world, pt), TreeType.REDWOOD,
-                new EditSessionBlockChangeDelegate(editSession));
-    }
-
-    /**
-     * Generate a redwood tree at a location.
-     * 
-     * @param pt
-     * @return
-     */
-    @Override
-    public boolean generateTallRedwoodTree(EditSession editSession, Vector pt) {
-        return world.generateTree(BukkitUtil.toLocation(world, pt), TreeType.TALL_REDWOOD,
-                new EditSessionBlockChangeDelegate(editSession));
-    }
-
-    /**
      * Drop an item.
      *
      * @param pt
@@ -472,10 +417,7 @@ public class BukkitWorld extends LocalWorld {
         double radiusSq = Math.pow(radius, 2);
         
         for (LivingEntity ent : world.getLivingEntities()) {
-            if (!killPets && ent instanceof Wolf && ((Wolf) ent).isTamed()) {
-                continue; // tamed wolf
-            }
-            if (ent instanceof Creature || ent instanceof Ghast || ent instanceof Slime) {
+            if (ent instanceof Creature || ent instanceof Slime) {
                 if (radius == -1
                         || origin.distanceSq(BukkitUtil.toVector(ent.getLocation())) <= radiusSq) {
                     ent.remove();

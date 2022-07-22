@@ -104,6 +104,10 @@ public class WorldEditPlugin extends JavaPlugin {
                 new SessionTimer(controller, getServer()), 120, 120);
     }
 
+    public InputStream getResource(String s) {
+        return null;
+    }
+
     /**
      * Called on plugin disable.
      */
