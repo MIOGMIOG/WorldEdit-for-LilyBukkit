@@ -39,9 +39,9 @@
 
     <!-- Bukkit -->
     <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <groupId>ru.vladthemountain</groupId>
+      <artifactId>lilybukkit</artifactId>
+      <version>1.1.0</version>
     </dependency>
 
     <!-- Archive reading library for snapshots -->
