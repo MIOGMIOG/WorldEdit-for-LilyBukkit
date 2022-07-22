@@ -23,6 +23,10 @@
       <id>sk89q-mvn2</id>
       <url>http://mvn2.sk89q.com/repo</url>
     </repository>
+    <repository>
+      <id>enginehub-maven</id>
+      <url>https://maven.enginehub.org/artifactory/repo/</url>
+    </repository>
   </repositories>
 
   <dependencies>
@@ -36,9 +40,9 @@
 
     <!-- Bukkit -->
     <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <groupId>ru.vladthemountain</groupId>
+      <artifactId>lilybukkit</artifactId>
+      <version>1.1.0</version>
     </dependency>
 
     <!-- Archive reading library for snapshots -->
