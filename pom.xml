@@ -22,10 +22,6 @@
   </scm>
 
   <repositories>
-    <repository>
-      <id>enginehub-maven</id>
-      <url>https://maven.enginehub.org/artifactory/repo/</url>
-    </repository>
   </repositories>
 
   <dependencies>
