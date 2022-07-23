@@ -35,6 +35,8 @@
       <groupId>com.sk89q</groupId>
       <artifactId>dummypermscompat</artifactId>
       <version>1.4</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/dummypermscompat-1.4.jar</systemPath>
     </dependency>
 
     <!-- Bukkit -->
