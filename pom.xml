@@ -40,6 +40,8 @@
       <groupId>ru.vladthemountain</groupId>
       <artifactId>lilybukkit</artifactId>
       <version>1.1.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/lilybukkit-API.jar</systemPath>
     </dependency>
 
     <!-- Archive reading library for snapshots -->
