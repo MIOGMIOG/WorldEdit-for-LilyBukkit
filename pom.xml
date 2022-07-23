@@ -65,6 +65,7 @@
       <version>0.2.4a </version>
       <type>jar</type>
       <scope>compile</scope>
+      <systemPath>${project.basedir}/lib/jchronic.jar</systemPath>
     </dependency>
   </dependencies>
 
