@@ -197,12 +197,8 @@ public class Chunk {
             block = new ChestBlock(data);
         } else if (id == BlockID.FURNACE || id == BlockID.BURNING_FURNACE) {
             block = new FurnaceBlock(id, data);
-        } else if (id == BlockID.DISPENSER) {
-            block = new DispenserBlock(data);
         } else if (id == BlockID.MOB_SPAWNER) {
             block = new MobSpawnerBlock(data);
-        } else if (id == BlockID.NOTE_BLOCK) {
-            block = new NoteBlock(data);
         } else {
             block = new BaseBlock(id, data);
         }

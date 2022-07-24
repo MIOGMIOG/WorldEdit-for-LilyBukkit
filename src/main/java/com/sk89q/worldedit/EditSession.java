@@ -420,20 +420,8 @@ public class EditSession {
             return block;
         }
 
-        case BlockID.DISPENSER: {
-            DispenserBlock block = new DispenserBlock(data);
-            world.copyFromWorld(pt, block);
-            return block;
-        }
-
         case BlockID.MOB_SPAWNER: {
             MobSpawnerBlock block = new MobSpawnerBlock(data);
-            world.copyFromWorld(pt, block);
-            return block;
-        }
-
-        case BlockID.NOTE_BLOCK: {
-            NoteBlock block = new NoteBlock(data);
             world.copyFromWorld(pt, block);
             return block;
         }
@@ -2345,7 +2333,6 @@ public class EditSession {
         int h = prng.nextInt(3) - 1;
 
         BaseBlock log = new BaseBlock(BlockID.LOG);
-        BaseBlock pumpkin = new BaseBlock(BlockID.PUMPKIN);
 
         switch (t) {
         case 0:
@@ -2355,7 +2342,6 @@ public class EditSession {
             if (prng.nextBoolean()) {
                 setBlockIfAir(pos.add(1, h, -1), log);
             }
-            setBlockIfAir(pos.add(0, 0, -1), pumpkin);
             break;
 
         case 1:
@@ -2365,7 +2351,6 @@ public class EditSession {
             if (prng.nextBoolean()) {
                 setBlockIfAir(pos.add(1, h, 0), log);
             }
-            setBlockIfAir(pos.add(1, 0, 1), pumpkin);
             break;
 
         case 2:
@@ -2375,7 +2360,6 @@ public class EditSession {
             if (prng.nextBoolean()) {
                 setBlockIfAir(pos.add(-1, h, 0), log);
             }
-            setBlockIfAir(pos.add(-1, 0, 1), pumpkin);
             break;
 
         case 3:
@@ -2385,7 +2369,6 @@ public class EditSession {
             if (prng.nextBoolean()) {
                 setBlockIfAir(pos.add(-1, h, -1), log);
             }
-            setBlockIfAir(pos.add(-1, 0, -1), pumpkin);
         }
     }
 

@@ -530,16 +530,8 @@ public class CuboidClipboard {
                         block = new FurnaceBlock(blocks[index], blockData[index]);
                         break;
 
-                    case BlockID.DISPENSER:
-                        block = new DispenserBlock(blockData[index]);
-                        break;
-
                     case BlockID.MOB_SPAWNER:
                         block = new MobSpawnerBlock(blockData[index]);
-                        break;
-
-                    case BlockID.NOTE_BLOCK:
-                        block = new NoteBlock(blockData[index]);
                         break;
 
                     default:

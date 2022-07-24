@@ -25,6 +25,8 @@ import java.util.HashMap;
 import java.util.EnumSet;
 import java.util.Map.Entry;
 import com.sk89q.util.StringUtil;
+import com.sk89q.worldedit.data.BlockData;
+import jdk.nashorn.internal.ir.Block;
 
 /**
  * ItemType types.
@@ -104,13 +106,37 @@ public enum ItemType {
     SUGAR_CANE(BlockID.REED, "Reed", "reed", "cane", "sugarcane", "sugarcanes", "vine", "vines"),
     JUKEBOX(BlockID.JUKEBOX, "Jukebox", "jukebox", "stereo", "recordplayer"),
     FENCE(BlockID.FENCE, "Fence", "fence"),
-    PORTAL(BlockID.PORTAL, "Portal", "portal"),
-    JACK_O_LANTERN(BlockID.JACKOLANTERN, "Pumpkin (on)", "pumpkinlighted", "pumpkinon", "litpumpkin", "jackolantern"),
-    CAKE(BlockID.CAKE_BLOCK, "Cake", "cake", "cakeblock"),
-    REDSTONE_REPEATER_OFF(BlockID.REDSTONE_REPEATER_OFF, "Redstone repeater (off)", "diodeoff", "redstonerepeater", "repeateroff", "delayeroff"),
-    REDSTONE_REPEATER_ON(BlockID.REDSTONE_REPEATER_ON, "Redstone repeater (on)", "diodeon", "redstonerepeateron", "repeateron", "delayeron"),
-    LOCKED_CHEST(BlockID.LOCKED_CHEST, "Locked chest", "lockedchest", "steveco", "supplycrate", "valveneedstoworkonep3nottf2kthx"),
-    TRAP_DOOR(BlockID.TRAP_DOOR, "Trap door", "trapdoor", "hatch", "floordoor"),
+    QUAD_WINDOW_GLASS(BlockID.QUAD_WINDOW_GLASS, "Quad Window Glass", "windowblock", "windows", "window", "quad_window_glass", "quadwindowglass"),
+    PILLAR(BlockID.PILLAR, "Pillar Block", "pillar", "pillar_block", "woodpillar", "wood_pillar", "woodpillarblock"),
+    SCAFFOLD(BlockID.SCAFFOLD, "Scaffold", "scaffold", "stonescaffold", "tile"),
+    X_RAY_SCAFFOLD(BlockID.X_RAY_SCAFFOLD, "X-Ray Scaffold", "xrayscaffold", "x_ray_scaffold", "xray_scaffold", "xray_tile", "xraytile"),
+    TRANSPARENT_SCAFFOLD(BlockID.TRANSPARENT_SCAFFOLD, "Transparent Scaffold", "transparentscaffold", "transparent_scaffold", "transparent_tile", "transparenttile"),
+    DIMENSION_FLOOR(BlockID.DIMENSION_FLOOR, "Dimension Floor block", "dimension_floor", "dimensionfloor", "dimension_floor_block", "dimensionfloorblock"),
+    DIMENSION_WALL(BlockID.DIMENSION_WALL, "Dimension Wall block", "dimension_wall", "dimension_wall_block", "dimensionwall", "dimensionwallblock"),
+    DBG_BLOCK(BlockID.DBG_BLOCK, "Debug block", "debug_block", "dbg_block", "debugblock", "dbgblock"),
+    BLUE_TILE(BlockID.BLUE_TILE, "Blue tile", "blue_tile", "bluetile"),
+    YELLOW_TILE(BlockID.YELLOW_TILE, "Yellow tile", "yellow_tile", "yellowtile"),
+    FAKE_GRASS(BlockID.FAKE_GRASS, "Fake Grass", "fake_grass", "fakegrass", "fake_grass_block", "fakegrassblock"),
+    CYAN_MOJANG_BLOCK(BlockID.CYAN_MOJANG_BLOCK, "Cyan Mojang block", "cyan_mojang_block", "cyanmojangblock"),
+    WHITE_MOJANG_BLOCK(BlockID.WHITE_MOJANG_BLOCK, "White Mojang block", "white_mojang_block", "whitemojangblock"),
+    GREEN_MOJANG_BLOCK(BlockID.GREEN_MOJANG_BLOCK, "Green Mojang block", "green_mojang_block", "greenmojangblock"),
+    BARRIER(BlockID.BARRIER, "Barrier block", "barrier", "barrier_block", "barrierblock"),
+    STAIR_LADDER(BlockID.STAIR_LADDER, "Stair ladder", "fake_ladder", "fakeladder", "stair_ladder", "stairladder"),
+    FAKE_DIRT(BlockID.FAKE_DIRT, "Fake dirt", "fake_dirt", "fakedirt", "fake_dirt_block", "fakedirtblock"),
+    FAKE_STONE(BlockID.FAKE_STONE, "Fake stone", "fake_stone", "fakestone", "fake_stone_block", "fakestoneblock"),
+    FAKE_SAND(BlockID.FAKE_SAND, "Fake sand", "fake_sand", "fakesand", "fake_sand_block", "fakesandblock"),
+    PINK_WOOL(BlockID.PINK_WOOL, "Pink wool", "pink_wool", "pinkwool", "pinkwoolblock", "pink_wool_block", "woolpink"),
+    BLUE_WOOL(BlockID.BLUE_WOOL, "Blue wool", "blue_wool", "bluewool", "bluewoolblock", "blue_wool_block", "woolblue"),
+    GREEN_WOOL(BlockID.GREEN_WOOL, "Green wool", "green_wool", "greenwool", "greenwoolblock", "green_wool_block", "woolgreen"),
+    BLACK_WOOL(BlockID.BLACK_WOOL, "Black wool", "black_wool", "blackwool", "blackwoolblock", "black_wool_block", "woolblack"),
+    DBG(BlockID.DBG, "Debug", "dbg", "debug"),
+    SALT(BlockID.SALT, "Salt block", "salt", "salt_block", "saltblock"),
+    GLOWING_FLOWER(BlockID.GLOWING_FLOWER, "Glowing flower", "glowing_flower", "glowingflower"),
+    BLUE_FLAME(BlockID.BLUE_FLAME, "Blue flame", "flame", "blue_flame", "blueflame"),
+    INFUSED_GLOWING_FLOWER(BlockID.INFUSED_GLOWING_FLOWER, "Infused glowing flower", "infused_glowing_flower", "infusedglowingflower"),
+    GOLD_INFUSED_GLOWING_FLOWER(BlockID.GOLD_INFUSED_GLOWING_FLOWER, "Gold infused glowing flower", "gold_infused_glowing_flower", "goldinfusedglowingflower"),
+    OBSIDIAN_INFUSED_GLOWING_FLOWER(BlockID.OBSIDIAN_INFUSED_GLOWING_FLOWER, "Obsidian infused glowing flower", "obsidian_infused_glowing_flower", "obsidianinfusedglowingflower"),
+    SAFE_BLOCK(BlockID.SAFE_BLOCK, "Safe block", "safe_block", "safeblock", "codeblock", "code_block"),
 
     // Items
     IRON_SHOVEL(256, "Iron shovel", "ironshovel"),
@@ -329,32 +355,32 @@ public enum ItemType {
      */
     public static ItemType lookup(String name, boolean fuzzy) {
         String testName = name.replace(" ", "").toLowerCase();
-        
+
         ItemType type = lookup.get(testName);
-        
+
         if (type != null) {
             return type;
         }
-        
+
         if (!fuzzy) {
             return null;
         }
-        
+
         int minDist = -1;
-        
+
         for (Entry<String, ItemType> entry : lookup.entrySet()) {
             if (entry.getKey().charAt(0) != testName.charAt(0)) {
                 continue;
             }
-            
+
             int dist = StringUtil.getLevenshteinDistance(entry.getKey(), testName);
-            
+
             if ((dist < minDist || minDist == -1) && dist < 2) {
                 minDist = dist;
                 type = entry.getValue();
             }
         }
-        
+
         return type;
     }
 
@@ -375,19 +401,19 @@ public enum ItemType {
     public String getName() {
         return name;
     }
-    
+
     /**
      * Get a list of aliases.
-     * 
+     *
      * @return
      */
     public String[] getAliases() {
         return lookupKeys;
     }
-    
+
     /**
      * Returns true if an item should not be stacked.
-     * 
+     *
      * @param id
      * @return
      */
@@ -466,11 +492,11 @@ public enum ItemType {
             || t == ItemType.GOLD_RECORD
             || t == ItemType.GREEN_RECORD;
     }
-    
+
     /**
      * Returns true if an item uses its damage value for something
      * other than damage.
-     * 
+     *
      * @param id
      * @return
      */

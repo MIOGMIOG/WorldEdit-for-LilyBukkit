@@ -333,9 +333,6 @@ public class WorldEdit {
                             data = 0;
                             break;
 
-                        case SANDSTONE:
-                            data = 1;
-                            break;
 
                         case WOOD:
                             data = 2;
@@ -391,17 +388,6 @@ public class WorldEdit {
                 }
             
             // Allow setting note
-            } else if (blockType == BlockType.NOTE_BLOCK) {
-                if (args0.length > 1) {
-                    byte note = Byte.parseByte(args0[1]);
-                    if (note < 0 || note > 24) {
-                        throw new InvalidItemException(arg, "Out of range note value: '" + args0[1] + "'");
-                    } else {
-                        return new NoteBlock(data, note);
-                    }
-                } else {
-                    return new NoteBlock(data, (byte)0);
-                }
             }
 
             return new BaseBlock(blockId, data);
@@ -1287,7 +1273,7 @@ public class WorldEdit {
      * @throws WorldEditException 
      */
     public void runScript(LocalPlayer player, File f, String[] args)
-            throws WorldEditException {
+            throws WorldEditException, ScriptException {
         String filename = f.getPath();        
         int index = filename.lastIndexOf(".");
         String ext = filename.substring(index + 1, filename.length());
@@ -1347,10 +1333,6 @@ public class WorldEdit {
         
         try {
             engine.evaluate(script, filename, vars);
-        } catch (ScriptException e) {
-            player.printError("Failed to execute:");;
-            player.printRaw(e.getMessage());
-            e.printStackTrace();
         } catch (NumberFormatException e) {
             throw e;
         } catch (WorldEditException e) {

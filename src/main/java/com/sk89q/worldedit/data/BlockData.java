@@ -38,8 +38,8 @@ public final class BlockData {
     public static int rotate90(int type, int data) {
         switch (type) {
         case BlockID.TORCH:
-        case BlockID.REDSTONE_TORCH_OFF:
-        case BlockID.REDSTONE_TORCH_ON:
+        case BlockID.GREENSTONE_TORCH_OFF:
+        case BlockID.GREENSTONE_TORCH_ON:
             switch (data) {
             case 1: return 3;
             case 2: return 4;
@@ -56,18 +56,6 @@ public final class BlockData {
             case 9: return 6;
             }
             /* FALL-THROUGH */
-
-        case BlockID.POWERED_RAIL:
-        case BlockID.DETECTOR_RAIL:
-            switch (data & 0x7) {
-            case 0: return 1;
-            case 1: return 0;
-            case 2: return 5;
-            case 3: return 4;
-            case 4: return 2;
-            case 5: return 3;
-            }
-            break;
 
         case BlockID.WOODEN_STAIRS:
         case BlockID.COBBLESTONE_STAIRS:
@@ -111,7 +99,6 @@ public final class BlockData {
         case BlockID.WALL_SIGN:
         case BlockID.FURNACE:
         case BlockID.BURNING_FURNACE:
-        case BlockID.DISPENSER:
             switch (data) {
             case 2: return 5;
             case 3: return 4;
@@ -120,48 +107,6 @@ public final class BlockData {
             }
             break;
 
-        case BlockID.PUMPKIN:
-        case BlockID.JACKOLANTERN:
-            switch (data) {
-            case 0: return 1;
-            case 1: return 2;
-            case 2: return 3;
-            case 3: return 0;
-            }
-            break;
-
-        case BlockID.REDSTONE_REPEATER_OFF:
-        case BlockID.REDSTONE_REPEATER_ON:
-            int dir = data & 0x03;
-            int delay = data - dir;
-            switch (dir) {
-            case 0: return 1 | delay;
-            case 1: return 2 | delay;
-            case 2: return 3 | delay;
-            case 3: return 0 | delay;
-            }
-            break;
-
-        case BlockID.TRAP_DOOR:
-            int open = data & 0x4;
-            int withoutOpen = data & ~0x4;
-            switch (withoutOpen) {
-            case 0: return 3 | open;
-            case 1: return 2 | open;
-            case 2: return 0 | open;
-            case 3: return 1 | open;
-            }
-        case BlockID.PISTON_BASE:
-        case BlockID.PISTON_STICKY_BASE:
-        case BlockID.PISTON_EXTENSION:
-            switch(data) {
-            case 0: return 0;
-            case 1: return 1;
-            case 2: return 5;
-            case 3: return 4;
-            case 4: return 2;
-            case 5: return 3;
-            }
         }
 
         return data;
@@ -179,8 +124,8 @@ public final class BlockData {
 
         switch (type) {
         case BlockID.TORCH:
-        case BlockID.REDSTONE_TORCH_OFF:
-        case BlockID.REDSTONE_TORCH_ON:
+        case BlockID.GREENSTONE_TORCH_OFF:
+        case BlockID.GREENSTONE_TORCH_ON:
             switch (data) {
             case 3: return 1;
             case 4: return 2;
@@ -198,17 +143,6 @@ public final class BlockData {
             }
             /* FALL-THROUGH */
 
-        case BlockID.POWERED_RAIL:
-        case BlockID.DETECTOR_RAIL:
-            switch (data & 0x7) {
-            case 1: return 0;
-            case 0: return 1;
-            case 5: return 2;
-            case 4: return 3;
-            case 2: return 4;
-            case 3: return 5;
-            }
-            break;
 
         case BlockID.WOODEN_STAIRS:
         case BlockID.COBBLESTONE_STAIRS:
@@ -252,7 +186,6 @@ public final class BlockData {
         case BlockID.WALL_SIGN:
         case BlockID.FURNACE:
         case BlockID.BURNING_FURNACE:
-        case BlockID.DISPENSER:
             switch (data) {
             case 5: return 2;
             case 4: return 3;
@@ -260,49 +193,6 @@ public final class BlockData {
             case 3: return 5;
             }
             break;
-
-        case BlockID.PUMPKIN:
-        case BlockID.JACKOLANTERN:
-            switch (data) {
-            case 1: return 0;
-            case 2: return 1;
-            case 3: return 2;
-            case 0: return 3;
-            }
-            break;
-
-        case BlockID.REDSTONE_REPEATER_OFF:
-        case BlockID.REDSTONE_REPEATER_ON:
-            int dir = data & 0x03;
-            int delay = data - dir;
-            switch (dir) {
-            case 1: return 0 | delay;
-            case 2: return 1 | delay;
-            case 3: return 2 | delay;
-            case 0: return 3 | delay;
-            }
-            break;
-
-        case BlockID.TRAP_DOOR:
-            int open = data & 0x4;
-            int withoutOpen = data & ~0x4;
-            switch (withoutOpen) {
-            case 3: return 0 | open;
-            case 2: return 1 | open;
-            case 0: return 2 | open;
-            case 1: return 3 | open;
-            }
-        case BlockID.PISTON_BASE:
-        case BlockID.PISTON_STICKY_BASE:
-        case BlockID.PISTON_EXTENSION:
-            switch(data) {
-            case 0: return 0;
-            case 1: return 1;
-            case 5: return 2;
-            case 4: return 3;
-            case 2: return 4;
-            case 3: return 5;
-            }
         }
 
         return data;
@@ -348,8 +238,8 @@ public final class BlockData {
 
         switch (type) {
         case BlockID.TORCH:
-        case BlockID.REDSTONE_TORCH_OFF:
-        case BlockID.REDSTONE_TORCH_ON:
+        case BlockID.GREENSTONE_TORCH_OFF:
+        case BlockID.GREENSTONE_TORCH_ON:
         case BlockID.LEVER:
         case BlockID.STONE_BUTTON:
             switch (data & ~0x8) {
@@ -368,23 +258,6 @@ public final class BlockData {
             case 9: return data - flipX - 3*flipY;
             }
             /* FALL-THROUGH */
-
-        case BlockID.POWERED_RAIL:
-        case BlockID.DETECTOR_RAIL:
-            switch (data & 0x7) {
-            case 0:
-            case 1:
-                return data;
-
-            case 2:
-            case 3:
-                return data ^ flipX;
-            case 4:
-            case 5:
-                return data ^ flipY;
-
-            }
-            break;
 
         case BlockID.WOODEN_STAIRS:
         case BlockID.COBBLESTONE_STAIRS:
@@ -423,7 +296,6 @@ public final class BlockData {
         case BlockID.WALL_SIGN:
         case BlockID.FURNACE:
         case BlockID.BURNING_FURNACE:
-        case BlockID.DISPENSER:
             switch (data) {
             case 2:
             case 3:
@@ -434,45 +306,6 @@ public final class BlockData {
             }
             break;
 
-        case BlockID.PUMPKIN:
-        case BlockID.JACKOLANTERN:
-        case BlockID.REDSTONE_REPEATER_OFF:
-        case BlockID.REDSTONE_REPEATER_ON:
-            switch (data & 0x3) {
-            case 0:
-            case 2:
-                return data ^ (flipY<<1);
-            case 1:
-            case 3:
-                return data ^ (flipX<<1);
-            }
-            break;
-
-        case BlockID.TRAP_DOOR:
-            switch (data & 0x3) {
-            case 0:
-            case 1:
-                return data ^ flipY;
-            case 2:
-            case 3:
-                return data ^ flipX;
-            }
-            break;
-
-        case BlockID.PISTON_BASE:
-        case BlockID.PISTON_STICKY_BASE:
-        case BlockID.PISTON_EXTENSION:
-            switch(data & ~0x8) {
-            case 0:
-            case 1:
-                return data ^ flipZ;
-            case 2:
-            case 3:
-                return data ^ flipY;
-            case 4:
-            case 5:
-                return data ^ flipX;
-            }
         }
 
         return data;

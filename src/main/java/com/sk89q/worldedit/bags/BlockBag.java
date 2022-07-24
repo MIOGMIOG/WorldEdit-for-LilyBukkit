@@ -60,13 +60,9 @@ public abstract class BlockBag {
             case BlockID.TNT:
             case BlockID.MOB_SPAWNER:
             case BlockID.CROPS:
-            case BlockID.REDSTONE_ORE:
-            case BlockID.GLOWING_REDSTONE_ORE:
+            case BlockID.GREENSTONE_ORE:
+            case BlockID.GLOWING_GREENSTONE_ORE:
             case BlockID.SNOW:
-            case BlockID.LIGHTSTONE:
-            case BlockID.PORTAL:
-                throw new UnplaceableBlockException();
-
             case BlockID.WATER:
             case BlockID.STATIONARY_WATER:
             case BlockID.LAVA:
@@ -89,12 +85,12 @@ public abstract class BlockBag {
                 fetchBlock(BlockID.DIRT);
                 break;
 
-            case BlockID.REDSTONE_WIRE:
+            case BlockID.GREENSTONE_WIRE:
                 fetchBlock(ItemType.REDSTONE_DUST.getID());
                 break;
 
-            case BlockID.REDSTONE_TORCH_OFF:
-                fetchBlock(BlockID.REDSTONE_TORCH_ON);
+            case BlockID.GREENSTONE_TORCH_OFF:
+                fetchBlock(BlockID.GREENSTONE_TORCH_ON);
                 break;
 
             case BlockID.WALL_SIGN:

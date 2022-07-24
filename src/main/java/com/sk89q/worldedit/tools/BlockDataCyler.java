@@ -81,11 +81,8 @@ public class BlockDataCyler implements DoubleActionBlockTool {
             data = (data + increment) % 4;
         } else if (type == BlockID.DOUBLE_STEP) {
             data = (data + increment) % 4;
-        } else if (type == BlockID.FURNACE || type == BlockID.BURNING_FURNACE
-                || type == BlockID.DISPENSER) {
+        } else if (type == BlockID.FURNACE || type == BlockID.BURNING_FURNACE) {
             data = (data + increment) % 4 + 2;
-        } else if (type == BlockID.PUMPKIN || type == BlockID.JACKOLANTERN) {
-            data = (data + increment) % 4;
         } else if (type == BlockID.CLOTH) {
             if (forward) {
                 data = nextClothColor(data);

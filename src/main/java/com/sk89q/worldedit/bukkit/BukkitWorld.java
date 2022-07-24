@@ -19,6 +19,7 @@
 
 package com.sk89q.worldedit.bukkit;
 
+import com.sk89q.worldedit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Furnace;
@@ -40,12 +41,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.TreeType;
 import org.bukkit.World;
-import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.LocalWorld;
-import com.sk89q.worldedit.Vector;
-import com.sk89q.worldedit.Vector2D;
 import com.sk89q.worldedit.blocks.*;
-import com.sk89q.worldedit.EntityType;
 import com.sk89q.worldedit.regions.Region;
 
 public class BukkitWorld extends LocalWorld {
@@ -375,6 +371,18 @@ public class BukkitWorld extends LocalWorld {
     public boolean generateBigTree(EditSession editSession, Vector pt) {
         return world.generateTree(BukkitUtil.toLocation(world, pt), TreeType.BIG_TREE,
                 new EditSessionBlockChangeDelegate(editSession));
+    }
+
+    public boolean generateBirchTree(EditSession editSession, Vector pt) throws MaxChangedBlocksException {
+        return false;
+    }
+
+    public boolean generateRedwoodTree(EditSession editSession, Vector pt) throws MaxChangedBlocksException {
+        return false;
+    }
+
+    public boolean generateTallRedwoodTree(EditSession editSession, Vector pt) throws MaxChangedBlocksException {
+        return false;
     }
 
     /**

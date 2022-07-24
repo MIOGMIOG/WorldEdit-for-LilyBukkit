@@ -282,18 +282,6 @@ public abstract class LocalWorld {
             }
             break;
 
-        case BlockID.LAPIS_LAZULI_ORE:
-            dropItem(pt, new BaseItemStack(ItemType.INK_SACK.getID(), 1, (short) 4), (random.nextInt(5) + 4));
-            break;
-
-        case BlockID.BED:
-            dropItem(pt, new BaseItemStack(ItemType.BED_ITEM.getID()));
-            break;
-
-        case BlockID.LONG_GRASS:
-            if (random.nextInt(8) == 0) dropItem(pt, new BaseItemStack(ItemType.SEEDS.getID()));
-            break;
-
         case BlockID.CLOTH:
             dropItem(pt, new BaseItemStack(type, 1, (short) getBlockData(pt)));
             break;
@@ -310,7 +298,7 @@ public abstract class LocalWorld {
             dropItem(pt, new BaseItemStack(BlockID.WOOD));
             break;
 
-        case BlockID.REDSTONE_WIRE:
+        case BlockID.GREENSTONE_WIRE:
             dropItem(pt, new BaseItemStack(ItemType.REDSTONE_DUST.getID()));
             break;
 
@@ -350,13 +338,13 @@ public abstract class LocalWorld {
             dropItem(pt, new BaseItemStack(ItemType.IRON_DOOR_ITEM.getID()));
             break;
 
-        case BlockID.REDSTONE_ORE:
-        case BlockID.GLOWING_REDSTONE_ORE:
+        case BlockID.GREENSTONE_ORE:
+        case BlockID.GLOWING_GREENSTONE_ORE:
             dropItem(pt, new BaseItemStack(ItemType.REDSTONE_DUST.getID()), (random.nextInt(2) + 4));
             break;
 
-        case BlockID.REDSTONE_TORCH_OFF:
-            dropItem(pt, new BaseItemStack(BlockID.REDSTONE_TORCH_ON));
+        case BlockID.GREENSTONE_TORCH_OFF:
+            dropItem(pt, new BaseItemStack(BlockID.GREENSTONE_TORCH_ON));
             break;
 
         case BlockID.CLAY:
@@ -367,28 +355,17 @@ public abstract class LocalWorld {
             dropItem(pt, new BaseItemStack(ItemType.SUGAR_CANE_ITEM.getID()));
             break;
 
-        case BlockID.LIGHTSTONE:
-            dropItem(pt, new BaseItemStack(ItemType.LIGHTSTONE_DUST.getID()), (random.nextInt(3) + 2));
-            break;
-
-        case BlockID.REDSTONE_REPEATER_OFF:
-        case BlockID.REDSTONE_REPEATER_ON:
-            dropItem(pt, new BaseItemStack(ItemType.REDSTONE_REPEATER.getID()));
-            break;
-
         case BlockID.BEDROCK:
         case BlockID.WATER:
         case BlockID.STATIONARY_WATER:
         case BlockID.LAVA:
         case BlockID.STATIONARY_LAVA:
         case BlockID.GLASS:
-        case BlockID.PISTON_EXTENSION:
         case BlockID.BOOKCASE:
         case BlockID.FIRE:
         case BlockID.MOB_SPAWNER:
         case BlockID.SNOW:
         case BlockID.ICE:
-        case BlockID.PORTAL:
         case BlockID.AIR:
             break;
 
