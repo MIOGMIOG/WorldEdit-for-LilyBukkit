@@ -27,6 +27,8 @@ import com.sk89q.minecraft.util.commands.Logging;
 import static com.sk89q.minecraft.util.commands.Logging.LogMode.*;
 import com.sk89q.worldedit.*;
 
+import javax.script.ScriptException;
+
 /**
  * Scripting commands.
  * 
@@ -44,7 +46,7 @@ public class ScriptingCommands {
     @Logging(ALL)
     public static void execute(CommandContext args, WorldEdit we,
             LocalSession session, LocalPlayer player, EditSession editSession)
-            throws WorldEditException {
+            throws Exception {
         // @TODO: Check for worldedit.scripting.execute.<script> permission
 
         String[] scriptArgs = args.getSlice(1);
@@ -54,7 +56,7 @@ public class ScriptingCommands {
         File dir = we.getWorkingDirectoryFile(we.getConfiguration().scriptsDir);
         File f = we.getSafeOpenFile(player, dir, args.getString(0), "js",
                 new String[] {"js"});
-        
+
         we.runScript(player, f, scriptArgs);
     }
 
@@ -69,7 +71,7 @@ public class ScriptingCommands {
     @Logging(ALL)
     public static void executeLast(CommandContext args, WorldEdit we,
             LocalSession session, LocalPlayer player, EditSession editSession)
-            throws WorldEditException {
+            throws Exception {
         // @TODO: Check for worldedit.scripting.execute.<script> permission
         
         String lastScript = session.getLastScript();
@@ -84,8 +86,8 @@ public class ScriptingCommands {
         File dir = we.getWorkingDirectoryFile(we.getConfiguration().scriptsDir);
         File f = we.getSafeOpenFile(player, dir, lastScript, "js",
                 new String[] {"js"});
-        
+
         we.runScript(player, f, scriptArgs);
-        
+
     }
 }
