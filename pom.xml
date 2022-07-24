@@ -23,8 +23,8 @@
 
   <repositories>
     <repository>
-      <id>enginehub-maven</id>
-      <url>https://maven.enginehub.org/artifactory/repo/</url>
+      <id>central</id>
+      <url>https://repo1.maven.org/maven2</url>
     </repository>
   </repositories>
 
@@ -35,6 +35,8 @@
       <groupId>com.sk89q</groupId>
       <artifactId>dummypermscompat</artifactId>
       <version>1.4</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/dummypermscompat-1.4.jar</systemPath>
     </dependency>
 
     <!-- Bukkit -->
@@ -42,6 +44,8 @@
       <groupId>ru.vladthemountain</groupId>
       <artifactId>lilybukkit</artifactId>
       <version>1.1.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/lilybukkit-API.jar</systemPath>
     </dependency>
 
     <!-- Archive reading library for snapshots -->
@@ -66,7 +70,8 @@
       <artifactId>jchronic</artifactId>
       <version>0.2.4a </version>
       <type>jar</type>
-      <scope>compile</scope>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/jchronic.jar</systemPath>
     </dependency>
   </dependencies>
 
