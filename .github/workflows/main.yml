@@ -6,6 +6,7 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "LilyBukkit" ]
+    paths-ignore: README.md
   pull_request:
     branches: [ "LilyBukkit" ]
   workflow_dispatch:
