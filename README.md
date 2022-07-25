@@ -9,7 +9,7 @@ are available."
 Compiling
 ---------
 
-You need to have [Maven](http://maven.apache.org) and [JDK 8](https://www.azul.com/downloads/?version=java-8-lts&package=jdk#download-openjdk) installed. Once installed,
+You need to have [Maven](https://maven.apache.org/download.cgi) and [JDK 8](https://www.azul.com/downloads/?version=java-8-lts&package=jdk#download-openjdk) installed. Once installed,
 simply run:
 
     mvn package --file pom.xml
