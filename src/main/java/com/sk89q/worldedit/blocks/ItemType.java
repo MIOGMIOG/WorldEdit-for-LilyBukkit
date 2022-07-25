@@ -214,7 +214,7 @@ public enum ItemType {
     MINECART(328, "Minecart", "minecart", "cart"),
     SADDLE(329, "Saddle", "saddle"),
     IRON_DOOR_ITEM(330, "Iron door", "irondoor"),
-    REDSTONE_DUST(331, "Redstone dust", "redstonedust", "reddust", "redstone", "dust", "wire"),
+    GREENSTONE_DUST(331, "Greenstone dust", "greenstonedust", "greendust", "greenstone", "dust", "wire"),
     SNOWBALL(332, "Snowball", "snowball"),
     WOOD_BOAT(333, "Wooden boat", "woodboat", "woodenboat", "boat"),
     LEATHER(334, "Leather", "leather", "cowhide"),
@@ -229,22 +229,25 @@ public enum ItemType {
     POWERED_MINECART(343, "Powered minecart", "poweredminecart", "poweredcart"),
     EGG(344, "Egg", "egg"),
     COMPASS(345, "Compass", "compass"),
-    FISHING_ROD(346, "Fishing rod", "fishingrod", "fishingpole"),
-    WATCH(347, "Watch", "watch", "clock", "timer"),
-    LIGHTSTONE_DUST(348, "Glowstone dust", "lightstonedust", "glowstonedone", "brightstonedust", "brittlegolddust", "brimstonedust"),
-    RAW_FISH(349, "Raw fish", "rawfish", "fish"),
-    COOKED_FISH(350, "Cooked fish", "cookedfish"),
-    INK_SACK(351, "Ink sac", "inksac", "ink", "dye", "inksack"),
-    BONE(352, "Bone", "bone"),
-    SUGAR(353, "Sugar", "sugar"),
-    CAKE_ITEM(354, "Cake", "cake"),
-    BED_ITEM(355, "Bed", "bed"),
-    REDSTONE_REPEATER(356, "Redstone repeater", "redstonerepeater", "diode", "delayer", "repeater"),
-    COOKIE(357, "Cookie", "cookie"),
-    MAP(358, "Map", "map"),
-    SHEARS(359, "Shears", "shears", "scissors"),
-    GOLD_RECORD(2256, "Gold Record", "goldrecord", "golddisc"),
-    GREEN_RECORD(2257, "Green Record", "greenrecord", "greenddisc");
+    OBSIDIAN_HELMET(346, "Obsidian helmet", "obsidianhelmet", "obsidianhat"),
+    OBSIDIAN_CHEST(347, "Obsidian chestplate", "obsidianchest", "obsidianchestplate", "obsidianvest", "obsidianbreastplate", "obsidianplate", "obsidiancplate", "obsidianbody"),
+    OBSIDIAN_PANTS(348, "Obsidian pants", "obsidianpants", "obsidiangreaves", "obsidianlegs", "obsidianleggings", "obsidianstockings", "obsidianbreeches"),
+    OBSIDIAN_BOOTS(349, "Obsidian boots", "obsidianboots", "obsidianshoes", "obsidianfoot", "obsidianfeet"),
+    OBSIDIAN_SWORD(350, "Obsidian sword", "obsidiansword"),
+    OBSIDIAN_SHOVEL(351, "Obsidian shovel", "obsidianshovel"),
+    OBSIDIAN_PICKAXE(352, "Obsidian pickaxe", "obsidianpick", "obsidianpickaxe"),
+    OBSIDIAN_AXE(353, "Obsidian axe", "obsidianaxe"),
+    OBSIDIAN_HOE(354, "Obsidian hoe", "obsidianhoe"),
+    OBSIDIAN_BAR(355, "Obsidian bar", "obsidianbar"),
+    BLACK_DYE(356, "Black dye", "blackdye"),
+    GREEN_DYE(357, "Green dye", "greendye"),
+    BLUE_DYE(358, "Blue dye", "bluedye"),
+    PINK_DYE(359, "Pink dye", "pinkdye"),
+    FRYSHROOM(360, "Fryshroom", "fryshroom"),
+    EDIBLE_FLAME(361, "Edible flame", "edibleflame"),
+    FLAMEBERGE(362, "Flameberge", "flameberge"),
+    HIDDEN_DEN_RECORD(2256, "Hidden Den Record", "hiddendenrecord", "hiddendendisc", "hiddenden"),
+    LEMURIA_RECORD(2257, "Lemuria Record", "lemuriarecord", "lemuriadisc", "lemuria");
 
     /**
      * Stores a map of the IDs for fast access.
@@ -483,14 +486,19 @@ public enum ItemType {
             || t == ItemType.MILK_BUCKET
             || t == ItemType.STORAGE_MINECART
             || t == ItemType.POWERED_MINECART
-            || t == ItemType.WATCH
-            || t == ItemType.RAW_FISH
-            || t == ItemType.COOKED_FISH
-            || t == ItemType.CAKE_ITEM
-            || t == ItemType.BED_ITEM
-            || t == ItemType.MAP
-            || t == ItemType.GOLD_RECORD
-            || t == ItemType.GREEN_RECORD;
+            || t == ItemType.FRYSHROOM
+            || t == ItemType.EDIBLE_FLAME
+            || t == ItemType.OBSIDIAN_HELMET
+            || t == ItemType.OBSIDIAN_CHEST
+            || t == ItemType.OBSIDIAN_PANTS
+            || t == ItemType.OBSIDIAN_BOOTS
+            || t == ItemType.OBSIDIAN_SWORD
+            || t == ItemType.OBSIDIAN_AXE
+            || t == ItemType.OBSIDIAN_PICKAXE
+            || t == ItemType.OBSIDIAN_SHOVEL
+            || t == ItemType.OBSIDIAN_HOE
+            || t == ItemType.HIDDEN_DEN_RECORD
+            || t == ItemType.LEMURIA_RECORD;
     }
 
     /**
@@ -501,7 +509,6 @@ public enum ItemType {
      * @return
      */
     public static boolean usesDamageValue(int id) {
-        return id == ItemType.CLOTH.getID()
-            || id == ItemType.INK_SACK.getID();
+        return id == ItemType.CLOTH.getID();
     }
 }

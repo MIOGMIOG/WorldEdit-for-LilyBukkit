@@ -86,7 +86,7 @@ public abstract class BlockBag {
                 break;
 
             case BlockID.GREENSTONE_WIRE:
-                fetchBlock(ItemType.REDSTONE_DUST.getID());
+                fetchBlock(ItemType.GREENSTONE_DUST.getID());
                 break;
 
             case BlockID.GREENSTONE_TORCH_OFF:

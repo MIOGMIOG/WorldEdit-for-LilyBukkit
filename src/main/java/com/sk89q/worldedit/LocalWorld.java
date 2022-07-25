@@ -299,7 +299,7 @@ public abstract class LocalWorld {
             break;
 
         case BlockID.GREENSTONE_WIRE:
-            dropItem(pt, new BaseItemStack(ItemType.REDSTONE_DUST.getID()));
+            dropItem(pt, new BaseItemStack(ItemType.GREENSTONE_DUST.getID()));
             break;
 
         case BlockID.DIAMOND_ORE:
@@ -340,7 +340,7 @@ public abstract class LocalWorld {
 
         case BlockID.GREENSTONE_ORE:
         case BlockID.GLOWING_GREENSTONE_ORE:
-            dropItem(pt, new BaseItemStack(ItemType.REDSTONE_DUST.getID()), (random.nextInt(2) + 4));
+            dropItem(pt, new BaseItemStack(ItemType.GREENSTONE_DUST.getID()), (random.nextInt(2) + 4));
             break;
 
         case BlockID.GREENSTONE_TORCH_OFF:
